@@ -1,6 +1,7 @@
 # EXP-3-B-Automatic-street-light-systems-using-LDR-sensor
 
 ## Aim: 
+To design an automatic street light system using an LDR sensor in Tinkercad that switches ON lights in darkness and OFF in daylight, ensuring energy conservation and automation.
 
 ## Hardware / Software Tools required:
 
@@ -11,7 +12,7 @@
 	Photoresistor
   
 ## Circuit Diagram:
-
+<img width="994" height="652" alt="image" src="https://github.com/user-attachments/assets/21da1b42-a6d7-47bc-bfac-6462ed04643c" />
 
 ## Theory :
 
@@ -21,12 +22,12 @@ The board is programmable using the Arduino IDE (Integrated Development Environm
 ## Procedure:
 
 ### Step 1: 
-	Set Up the Tinkercad Environment
+Set Up the Tinkercad Environment
 •	Log in to Tinkercad: Open Tinkercad in your web browser and log in to your account.
 •	Create a New Circuit: In the Tinkercad dashboard, click on "Circuits" and then select "Create New Circuit."
 ### Step 2: 
 
-	Add Components to the Circuit
+Add Components to the Circuit
 •	Arduino Uno: Drag an Arduino Uno board from the components panel onto the workspace.
 •	LDR Sensor: Search for the Photoresistor in the components panel and drag it into the workspace.
 •	Breadboard: Drag a small breadboard to the workspace to help with wiring connections.
@@ -34,7 +35,7 @@ The board is programmable using the Arduino IDE (Integrated Development Environm
 •	Wires: Use wires to connect the components.
 
 ### Step 3: 
-	Connect the LDR Sensor to the Arduino
+Connect the LDR Sensor to the Arduino
 •	LDR Sensor Pins: The LDR has two terminals (pins).
 •	One LDR Pin to 5V: Connect one terminal of the LDR to the Arduino 5V pin.
 •	Other LDR Pin to Analog Input and Resistor:
@@ -65,11 +66,30 @@ o	The middle point (between LDR and resistor) connects to the Arduino analog inp
 •	Save the Circuit: Click "Save" to keep your circuit design and code for future use.
 
 ## Code:
+```
+int LDR = 0;
+void setup()
+{
+  pinMode(A5, INPUT);
+  pinMode(13, OUTPUT);
+  Serial.begin(9600);
+}
 
-
-
+void loop()
+{
+  LDR = analogRead(A5);
+  if (LDR > 750) {
+    digitalWrite(13, HIGH);
+    Serial.println(LDR);
+  } else {
+    digitalWrite(13, LOW);
+    Serial.println(LDR);
+  }
+  delay(1000); // Wait for 1000 millisecond(s)
+}
+```
 ## Output:
- 
-
+https://github.com/user-attachments/assets/4aa5780b-c1ee-4c0c-8bfe-aa43fa49337f
 
 ## Result:
+Thus, Automatic-street-light-systems-using-LDR-sensor was successfully implemented using TinkerCad
